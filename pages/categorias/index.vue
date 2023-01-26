@@ -18,13 +18,17 @@
                       <tr>
                         <th>#</th>
                         <th>Nombre</th>
-                        <th class="text-center">Acciones</th>
+                        <th>Creado</th>
+                        <th>Actualizado</th>
+                        <th>Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr v-for="(m, i) in list" :key="m.id">
                         <td>{{ i + 1 }}</td>
                         <td>{{ m.nombre }}</td>
+                        <td>{{ m.created_at }}</td>
+                        <td>{{ m.updated_at }}</td>
                         <td class="text-center">
                           <div class="btn-group">
                             <nuxtLink
