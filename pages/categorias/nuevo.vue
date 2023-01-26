@@ -6,7 +6,7 @@
           <div class="col-sm-8 col-12">
             <div class="card">
               <div class="card-header text-center">
-                <h3>Agregar Marca</h3>
+                <h3>Agregar Categoría</h3>
               </div>
               <div class="card-body">
                 <crudCreate :model="model" :apiUrl="apiUrl">
@@ -31,7 +31,7 @@ export default {
   name: "nuevo",
   head() {
     return {
-      title: "Nueva Marca",
+      title: "Nueva Categoría",
     };
   },
   data() {
@@ -39,9 +39,9 @@ export default {
       model: {
         nombre: "",
       },
-      apiUrl:'marcas',
+      apiUrl:'categorias',
       page:'Agregar',
-      modulo:'Marcas'
+      modulo:'Categorias'
     };
   },
   methods: {

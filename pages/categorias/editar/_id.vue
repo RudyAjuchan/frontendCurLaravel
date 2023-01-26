@@ -7,7 +7,7 @@
           <div class="col-sm-8 col-12">
             <div class="card">
               <div class="card-header text-center">
-                <h3>Actualizar Marca</h3>
+                <h3>Actualizar Categoría</h3>
                 {{ list }}
               </div>
               <div class="card-body">
@@ -30,10 +30,10 @@
 
 <script>
 export default {
-  name: "Editar marca",
+  name: "Editar categoría",
   head() {
     return {
-      title: "Editar marca",
+      title: "Editar categoría",
     };
   },
   data() {
@@ -42,9 +42,9 @@ export default {
       model: {
         nombre: "",
       },      
-      apiUrl:'marcas',
+      apiUrl:'categorias',
       page:'Editar',
-      modulo:'Marcas'
+      modulo:'Categorías'
     };
   },
   methods: {

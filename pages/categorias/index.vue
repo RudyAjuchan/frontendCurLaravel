@@ -18,8 +18,6 @@
                       <tr>
                         <th>#</th>
                         <th>Nombre</th>
-                        <th>Creado</th>
-                        <th>Actualizado</th>
                         <th>Acciones</th>
                       </tr>
                     </thead>
@@ -27,8 +25,6 @@
                       <tr v-for="(m, i) in list" :key="m.id">
                         <td>{{ i + 1 }}</td>
                         <td>{{ m.nombre }}</td>
-                        <td>{{ m.created_at }}</td>
-                        <td>{{ m.updated_at }}</td>
                         <td class="text-center">
                           <div class="btn-group">
                             <nuxtLink
@@ -64,7 +60,7 @@
 
 <script>
 export default {
-  name: "Marcas",
+  name: "Categorías",
   head() {
     return {
       title: this.modulo,
@@ -75,11 +71,11 @@ export default {
     return {
       load: true,
       list: [],
-      apiUrl:'marcas',
+      apiUrl:'categorias',
       page:'Listado',
-      modulo:'Marcas',
-      url_nuevo: '/marcas/nuevo',
-      url_editar: '/marcas/editar/'
+      modulo:'Categorías',
+      url_nuevo: '/categorias/nuevo',
+      url_editar: '/categorias/editar/'
     };
   },
   methods: {
