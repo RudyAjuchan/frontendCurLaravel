@@ -72,11 +72,11 @@ export default {
     return {
       load: true,
       list: [],
-      apiUrl:'categorias',
+      apiUrl:'articulos',
       page:'Listado',
-      modulo:'Categorías',
-      url_nuevo: '/categorias/nuevo',
-      url_editar: '/categorias/editar/'
+      modulo:'Artículos',
+      url_nuevo: '/articulos/nuevo',
+      url_editar: '/articulos/editar/'
     };
   },
   methods: {

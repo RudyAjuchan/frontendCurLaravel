@@ -173,6 +173,15 @@
                     <span class="sidenav-normal"> Categorías </span>
                   </nuxtLink>
                 </li>                
+                <li class="nav-item">
+                  <nuxtLink
+                    class="nav-link"                    
+                    to="/articulos"
+                  >
+                    <span class="sidenav-mini-icon"> A </span>
+                    <span class="sidenav-normal"> Articulos </span>
+                  </nuxtLink>
+                </li>                
               </ul>
             </div>
           </li>

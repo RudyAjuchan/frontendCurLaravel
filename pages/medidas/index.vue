@@ -20,7 +20,7 @@
                         <th>#</th>
                         <th>Nombre</th>
                         <th>Código</th>
-                        <th>Acciones</th>
+                        <th class="text-center">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
