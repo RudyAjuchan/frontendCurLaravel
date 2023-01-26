@@ -1,19 +1,19 @@
 <template>
   <div>
     <PageLoading :load="load"></PageLoading>
-    <AdminTemplate>
+    <AdminTemplate :page="page" :modulo="modulo">
       <div slot="body">
         <div class="row">
           <div class="col-12 text-end">
-            <button class="btn btn-dark btn-sm">
+            <nuxtLink :to="url_nuevo" class="btn btn-dark btn-sm">
               <i class="fas fa-plus"></i> Agregar
-            </button>
+            </nuxtLink>
           </div>
           <div class="col-12">
             <div class="card">
-              <div class="card-">
+              <div class="card-body">
                 <div class="table-responsive">
-                  <div class="table">
+                  <table class="table">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -31,17 +31,19 @@
                         <td>{{ m.updated_at }}</td>
                         <td class="text-center">
                           <div class="btn-group">
-                            <button
+                            <nuxtLink
                               class="btn btn-warning btn py-1 px-2"
                               type="button"
                               id=""
+                              :to="url_editar+m.id"                              
                             >
                               <i class="fas fa-pen"></i>
-                            </button>
+                            </nuxtLink>
                             <button
                               class="btn btn-danger btn py-1 px-2"
                               type="button"
                               id=""
+                              @click="deleted(m.id)"
                             >
                               <i class="fas fa-trash"></i>
                             </button>
@@ -49,7 +51,7 @@
                         </td>
                       </tr>
                     </tbody>
-                  </div>
+                  </table>
                 </div>
               </div>
             </div>
@@ -65,13 +67,19 @@ export default {
   name: "Marcas",
   head() {
     return {
-      title: "Marcas",
+      title: this.modulo,
     };
   },
+  
   data() {
     return {
       load: true,
       list: [],
+      apiUrl:'marcas',
+      page:'Listado',
+      modulo:'Marcas',
+      url_nuevo: '/marcas/nuevo',
+      url_editar: '/marcas/editar/'
     };
   },
   methods: {
@@ -79,11 +87,58 @@ export default {
       const res = await this.$api.$get(path);
       return res;
     },
+    async EliminarItem(id) {
+      let self = this;
+      this.load=true;
+      try {
+        const res = await this.$api.$delete(this.apiUrl+"/"+id);
+        this.$swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Se eliminó correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        self.cargarDatos();
+      } catch (error) {
+        this.$swal({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Hubo un problema al eliminar'+e,
+        });
+        console.log(e);
+      }finally{
+        this.load=false;
+      }
+    },
+    deleted(id){
+      let self = this;
+      this.$swal.fire({
+        title: '¿Esta seguro de eliminar el dato?',
+        text: "¡Esta acción es irreversible!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#E64942',
+        cancelButtonColor: '#dedede',
+        confirmButtonText: 'Yes, delete it!'
+      }).then( async(result) => { 
+        if (result.isConfirmed) {            
+          await self.EliminarItem(id)
+        } else {
+          this.$swal("No se eliminó el dato");
+        }          
+      });
+    },
+    async cargarDatos(){
+      await Promise.all([this.GET_DATA(this.apiUrl)]).then((v) => {
+        this.list = v[0];
+      });
+    }
   },
   mounted() {
     this.$nextTick(async () => {
       try {
-        await Promise.all([this.GET_DATA("marcas")]).then((v) => {
+        await Promise.all([this.GET_DATA(this.apiUrl)]).then((v) => {
           this.list = v[0];
         });
       } catch (e) {
