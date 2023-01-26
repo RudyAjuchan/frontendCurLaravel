@@ -4,6 +4,7 @@
     <AdminTemplate :page="page" :modulo="modulo">
       <div slot="body">
         <div class="row">
+          <h3 class="text-center">Marcas</h3>
           <div class="col-12 text-end">
             <nuxtLink :to="url_nuevo" class="btn btn-dark btn-sm">
               <i class="fas fa-plus"></i> Agregar
