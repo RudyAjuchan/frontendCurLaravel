@@ -30,6 +30,7 @@ export default {
   methods: {
     async save() {
       try {
+        
         this.load = true;
         const res = await this.$api.$post(this.apiUrl, this.model);
         this.$swal.fire({
@@ -43,7 +44,7 @@ export default {
         this.$swal({
           icon: 'error',
           title: '¡Error!',
-          text: 'Hubo un problema al guardar'+e.message,
+          text: 'Hubo un problema al guardar',
         });
         console.log(e);
       }finally{

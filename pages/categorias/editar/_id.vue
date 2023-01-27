@@ -8,7 +8,6 @@
             <div class="card">
               <div class="card-header text-center">
                 <h3>Actualizar Categoría</h3>
-                {{ list }}
               </div>
               <div class="card-body">
                 <crudUpdate :model="model" :apiUrl="apiUrl">
