@@ -7,11 +7,11 @@
           <div class="col-sm-10 col-12">
             <div class="card">
               <div class="card-header text-center">
-                <h3>Agregar Artículo</h3>
+                <h3>Agregar Artículo.</h3>
               </div>
               <div class="card-body">
                 <form @submit.prevent="validateBeforeSubmit">
-                  <crudCreate :model="model" :apiUrl="apiUrl">
+                  <crudCreate2 :model="model" :apiUrl="apiUrl" :statusValidate="statusValidate">
                     <div slot="body" class="row">                    
                       <div class="form-group col-12">
                         <ValidationProvider rules="required" ref="validar1" v-slot="{ errors }">
@@ -90,7 +90,7 @@
                           </ValidationProvider>
                         </div>                    
                     </div>
-                  </crudCreate>
+                  </crudCreate2>
                 </form>
               </div>
             </div>
@@ -131,7 +131,8 @@ export default {
       load: true,
       marcas:[],
       categorias:[],
-      medidas:[]
+      medidas:[],
+      statusValidate: false
     };
   },
   methods: {
@@ -139,11 +140,14 @@ export default {
       const res = await this.$api.$get(path);
       return res;
     },
-    validateBeforeSubmit() { 
+    async validateBeforeSubmit() { 
       for(var i=1; i<=8; i++){
         const provider = this.$refs['validar'+i]
         provider.validate();
-      }     
+      }
+      if(this.model.nombre!='' && this.model.barra!='' && this.model.compra!=null && this.model.venta!=null && this.model.stock_minimo!=null && this.model.medida_id!=null && this.model.marca_id!=null && this.model.categoria_id!=null){
+        this.statusValidate=true;
+      }
       return true;
     }
   },
