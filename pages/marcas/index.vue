@@ -14,7 +14,7 @@
             <div class="card">
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table">
+                  <table class="table" id="example">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -137,6 +137,19 @@ export default {
       try {
         await Promise.all([this.GET_DATA(this.apiUrl)]).then((v) => {
           this.list = v[0];
+        });
+        $('#example').DataTable({
+          "language": {
+            "paginate": {
+              "previous": "<i class='fas fa-angle-double-left'></i>",
+              "next":"<i class='fas fa-angle-double-right'></i>"
+            },
+            "lengthMenu": "Mostrar _MENU_ entradas",
+            "zeroRecords": "No hay ningun registro",
+            "info": "Mostrando _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay ningun registro",
+            "search":"Buscar"
+          }
         });
       } catch (e) {
         console.log(e);
