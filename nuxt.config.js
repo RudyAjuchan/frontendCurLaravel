@@ -17,7 +17,8 @@ export default {
       { rel: 'stylesheet', href: '/assets/css/nucleo-svg.css' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' },
       { rel: 'stylesheet', href: '/assets/css/soft-ui-dashboard.min.css?v=1.0.9' },
-      { rel: 'stylesheet', href: 'https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css' },
+      { rel: 'stylesheet', href: 'https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css' },      
+      { rel: 'stylesheet', href: 'https://cdn.datatables.net/buttons/2.3.2/css/buttons.dataTables.min.css' },      
     ],
     script:[
       { src:"https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"},
@@ -31,6 +32,12 @@ export default {
       { src:"/assets/js/plugins/chartjs.min.js"},
       { src:"https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"},
       { src:"https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"},
+      { src:"https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"},
+      { src:"https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"},
+      { src:"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"},
+      { src:"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"},
+      { src:"https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"},
+      { src:"https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"},
     ]
   },
 

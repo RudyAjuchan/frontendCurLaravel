@@ -160,7 +160,11 @@ export default {
             "info": "Mostrando _PAGE_ de _PAGES_",
             "infoEmpty": "No hay ningun registro",
             "search":"Buscar"
-          }
+          },
+          dom: 'Bfrtip',
+          buttons: [
+            'copy', 'csv', 'excel', 'pdf'
+          ]
         });
       } catch (e) {
         console.log(e);
