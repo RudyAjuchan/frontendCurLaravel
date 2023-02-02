@@ -57,9 +57,9 @@
           <li class="nav-item">
             <a
               data-bs-toggle="collapse"
-              href="#pagesExamples"
+              href="#configuracion"
               class="nav-link"
-              aria-controls="pagesExamples"
+              aria-controls="configuracion"
               role="button"
               aria-expanded="false"
             >
@@ -118,7 +118,7 @@
               </div>
               <span class="nav-link-text ms-1">Configuración</span>
             </a>
-            <div class="collapse" id="pagesExamples">
+            <div class="collapse" id="configuracion">
               <ul class="nav ms-4 ps-3">                
                 <li class="nav-item">
                   <nuxtLink
@@ -188,9 +188,9 @@
           <li class="nav-item">
             <a
               data-bs-toggle="collapse"
-              href="#pagesExamples"
+              href="#inventario"
               class="nav-link"
-              aria-controls="pagesExamples"
+              aria-controls="inventario"
               role="button"
               aria-expanded="false"
             >
@@ -249,7 +249,7 @@
               </div>
               <span class="nav-link-text ms-1">Inventarios</span>
             </a>
-            <div class="collapse" id="pagesExamples">
+            <div class="collapse" id="inventario">
               <ul class="nav ms-4 ps-3">                
                 <li class="nav-item">
                   <nuxtLink

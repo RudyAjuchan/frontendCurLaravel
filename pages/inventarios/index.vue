@@ -16,8 +16,9 @@
                         <th>Cód barra</th>
                         <th>Marca</th>
                         <th>Categoría</th>
-                        <th>Precio compra</th>
-                        <th>Precio Venta</th>
+                        <th>Inversión</th>
+                        <th>Valorizado</th>
+                        <th>Ganancia</th>
                         <th>Stock</th>
                         <th class="text-center">Acciones</th>
                       </tr>
@@ -29,9 +30,12 @@
                         <td>{{ m.barra }}</td>
                         <td>{{ m.marca.nombre }}</td>
                         <td>{{ m.categoria.nombre }}</td>
-                        <td>Q. {{ m.compra }}</td>
-                        <td>Q. {{ m.venta }}</td>
-                        <td>{{ m.stock_minimo + " " + m.medida.codigo}}</td>
+                        <td>Q. {{ Number(m.inversion).toFixed(2) }}</td>
+                        <td>Q. {{ Number(m.valorizado).toFixed(2)}}</td>
+                        <td>Q. {{ Number(m.ganancia).toFixed(2)}}</td>
+                        <td><span class="badge" :class="[m.stock<=m.stock_minimo?'badge-danger':'badge-success']"
+                            >{{ m.stock + " " + m.medida.codigo }}</span
+                          ></td>
                         <td class="text-center">
                           <div class="btn-group">
                             <nuxtLink

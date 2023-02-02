@@ -23,7 +23,7 @@
                         <th>Categoría</th>
                         <th>Precio compra</th>
                         <th>Precio Venta</th>
-                        <th>Stock</th>
+                        <th>Stock Min</th>
                         <th class="text-center">Acciones</th>
                       </tr>
                     </thead>
